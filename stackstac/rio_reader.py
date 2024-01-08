@@ -334,14 +334,14 @@ class AutoParallelRioReader:
                         )
 
                     raise RuntimeError(msg) from e
-            if ds.count != 1:
-                nr_of_bands = ds.count
-                ds.close()
-                raise RuntimeError(
-                    f"Assets must have exactly 1 band, but file {self.url!r} has {nr_of_bands}. "
-                    "We can't currently handle multi-band rasters (each band has to be "
-                    "a separate STAC asset), so you'll need to exclude this asset from your analysis."
-                )
+#            if ds.count != 1:
+#                nr_of_bands = ds.count
+#                ds.close()
+#                raise RuntimeError(
+#                    f"Assets must have exactly 1 band, but file {self.url!r} has {nr_of_bands}. "
+#                    "We can't currently handle multi-band rasters (each band has to be "
+#                    "a separate STAC asset), so you'll need to exclude this asset from your analysis."
+#                )
 
             # Only make a VRT if the dataset doesn't match the spatial spec we want
             if self.spec.vrt_params != {
